@@ -1,0 +1,6 @@
+[Desktop Entry]
+Type=Application
+Terminal=false
+Name=Teste
+Icon=/home/daniel/Pictures/Imagens/brainiac.png
+Exec=eog Pictures/Imagens/brainiac.png
