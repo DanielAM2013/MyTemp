@@ -7,12 +7,9 @@ SRCS=$(wildcard $(SRC)/*.tex)
 
 target=main
 
-all: pdf
+all: $(OUT)/$(target).pdf
 
 .PHONE: edit pdf view
-
-
-pdf: $(target).pdf
 
 view: $(OUT)/$(target).pdf
 	evince $? 2> /dev/null &
