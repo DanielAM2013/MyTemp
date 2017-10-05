@@ -13,14 +13,17 @@ target=main
 all: compilation test
 
 test:
-	$(BIN)/$(target)
+	$(BIN)/$(target) > .log
 
 compilation:
-	mkdir -p $(OUT) $(BIN)
-	g++ $(SRC)/$(target).cpp -o $(BIN)/$(target) $(CFLAGS)
+	@mkdir -p $(OUT) $(BIN)
+	@g++ $(SRC)/$(target).cpp -o $(BIN)/$(target) $(CFLAGS) > .log 2>&1 
 
 edit: $(SRCS)
 	vim -p$(shell echo "$?" | wc -w) $(SRCS);
+
+view:
+	tailf .log
 
 
 clean:
