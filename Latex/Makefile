@@ -12,7 +12,7 @@ all: $(OUT)/$(target).pdf
 .PHONE: edit pdf view
 
 view: $(OUT)/$(target).pdf
-	evince $? 2> /dev/null &
+	xdg-open $? 2> /dev/null &
 
 $(OUT)/%.pdf: $(SRC)/%.tex
 	@mkdir -p $(OUT) 
@@ -20,6 +20,10 @@ $(OUT)/%.pdf: $(SRC)/%.tex
 
 edit: $(SRCS)
 	vim -p$(shell echo "$?" | wc -w) $(SRCS);
+
+commit:
+	git add .
+	git commit
 
 clean:
 	rm -r $(OUT)
